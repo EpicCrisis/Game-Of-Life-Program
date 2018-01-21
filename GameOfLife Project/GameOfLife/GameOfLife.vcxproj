@@ -18,6 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\camera.h" />
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\demo_base.h" />
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\glext.h" />
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\lodepng.h" />
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\matrix.h" />
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\triangle_demo.h" />
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\lodepng.cpp" />
+    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\main.cpp" />
+    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\matrix.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{FCE4C3DA-748F-410A-ABF9-E4CF958208F7}</ProjectGuid>
@@ -130,20 +144,6 @@
       <AdditionalDependencies>glfw3.lib;glu32.lib;opengl32.lib;fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\camera.h" />
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\demo_base.h" />
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\glext.h" />
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\lodepng.h" />
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\matrix.h" />
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\triangle_demo.h" />
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\vector.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\lodepng.cpp" />
-    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\main.cpp" />
-    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\matrix.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

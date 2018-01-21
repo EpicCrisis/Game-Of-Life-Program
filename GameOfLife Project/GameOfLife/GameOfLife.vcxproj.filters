@@ -15,36 +15,36 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\camera.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\demo_base.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\demo_base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\glext.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\glext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\lodepng.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\lodepng.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\matrix.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\triangle_demo.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\triangle_demo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\vector.h">
+    <ClInclude Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\lodepng.cpp">
+    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\lodepng.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\main.cpp">
+    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife\GameOfLife\matrix.cpp">
+    <ClCompile Include="..\..\..\Conway%27s Game Of Life\GameOfLife Project\GameOfLife\matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

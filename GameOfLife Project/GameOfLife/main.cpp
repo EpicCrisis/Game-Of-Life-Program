@@ -12,6 +12,16 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
+class Cell
+{
+
+};
+
+class Grid
+{
+
+};
+
 void onWindowResized(GLFWwindow* window, int width, int height)
 {
 	if (height == 0) height = 1;						// Prevent A Divide By Zero By making Height Equal One
@@ -89,8 +99,8 @@ int main()
 	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
 
-														// initialize camera.
-	gCamera.translate(0.0f, 0.0f, 10.0f);
+														
+	gCamera.translate(0.0f, 0.0f, 10.0f);				// initialize camera.
 	Matrix matrix(Matrix::makeIdentityMatrix());
 	Matrix rotateMatrix(Matrix::makeRotateMatrix(0.5f, Vector(0.0f, 1.0f, 0.0f)));
 
