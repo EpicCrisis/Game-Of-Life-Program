@@ -8,19 +8,16 @@
 #include "vector.h"
 
 #include "triangle_demo.h"
+#include <iostream>
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
-class Cell
-{
+TriangleDemo* demo;
 
-};
-
-class Grid
-{
-
-};
+float MoveX = 0.0f;
+float MoveY = 0.0f;
+float MoveZ = 0.0f;
 
 void onWindowResized(GLFWwindow* window, int width, int height)
 {
@@ -31,65 +28,70 @@ void onWindowResized(GLFWwindow* window, int width, int height)
 	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
 	glLoadIdentity();									// Reset The Projection Matrix
 
-														// Calculate The Aspect Ratio Of The Window
-	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 0.1f, 100.0f);
+	// Calculate The Aspect Ratio Of The Window
+	//gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 0.1f, 100.0f);
+
+	gluOrtho2D(0, width, height, 0);
 
 	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
 	glLoadIdentity();									// Reset The Modelview Matrix
 }
 
-// Simple camera controller. (MOUSE)
-Camera gCamera;
 void onMouseMove(GLFWwindow* window, double x, double y)
 {
-	static int lastX = -1, lastY = -1;
-	if (lastX == -1 && lastY == -1)
+	demo->onMouseMove(x, y);
+}
+
+void onMouseButton(GLFWwindow* window, int button, int action, int mods)
+{
+	demo->onMouseButton(button, action);
+}
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	std::cout << "key : " << key << std::endl;
+
+	if (key == GLFW_KEY_A && action == GLFW_PRESS)
 	{
-		lastX = x;
-		lastY = y;
-		return;
+		std::cout << "key : " << key << std::endl;
 	}
-
-	int offsetX = x - lastX;
-	int offsetY = y - lastY;
-	lastX = x; lastY = y;
-
-	gCamera.rotate(offsetX * 0.1f, Vector(0.0f, 1.0f, 0.0f));
-	gCamera.rotateLocal(offsetY * 0.1f, Vector(1.0f, 0.0f, 0.0f));
 }
 
 int main()
 {
 	int running = GL_TRUE;
 
-	GLFWwindow* window;
+    GLFWwindow* window;
 
-	/* Initialize the GLFW library */
-	if (!glfwInit())
-		return -1;
+    /* Initialize the GLFW library */
+    if (!glfwInit())
+        return -1;
 
 	// Open an OpenGL window
 	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "OpenGL", NULL, NULL);
-	if (!window)
-	{
-		glfwTerminate();
-		return -1;
-	}
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
+
+	glfwSetKeyCallback(window, key_callback);
+
+	// Enable sticky keys
+	//glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
 	// Hook window resize.
 	glfwSetWindowSizeCallback(window, onWindowResized);
-
+	   
 	/* Make the window's context current */
-	glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(window);
 
 	onWindowResized(window, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	// hook mouse move callback and lock/hide mouse cursor.
 	glfwSetCursorPosCallback(window, onMouseMove);
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
-	//glfwSwapInterval(0); // Switch off VSync. ---//
-	glfwSwapInterval(1); // Switch on VSync. ---//
+	glfwSetMouseButtonCallback(window, onMouseButton);
+	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	// initialize OpenGL.
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
@@ -99,13 +101,8 @@ int main()
 	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
 
-														
-	gCamera.translate(0.0f, 0.0f, 10.0f);				// initialize camera.
-	Matrix matrix(Matrix::makeIdentityMatrix());
-	Matrix rotateMatrix(Matrix::makeRotateMatrix(0.5f, Vector(0.0f, 1.0f, 0.0f)));
-
 	// initialize demo.
-	DemoBase* demo = new TriangleDemo();
+	demo = new TriangleDemo();
 	demo->init();
 
 	// Main loop
@@ -114,29 +111,11 @@ int main()
 		// OpenGL rendering goes here...
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// Simple camera controller. (KEYBOARD)
-		float camMoveOffsetX = 0.0f, camMoveOffsetY = 0.0f, camMoveOffsetZ = 0.0f;
-		if (glfwGetKey(window, 'A')) camMoveOffsetX -= 0.5f;
-		if (glfwGetKey(window, 'D')) camMoveOffsetX += 0.5f;
-		if (glfwGetKey(window, 'W')) camMoveOffsetZ -= 0.5f;
-		if (glfwGetKey(window, 'S')) camMoveOffsetZ += 0.5f;
-		if (glfwGetKey(window, 'X')) camMoveOffsetY -= 0.5f;
-		if (glfwGetKey(window, 'Z')) camMoveOffsetY += 0.5f;
-		
-		/*if (glfwGetKey(window, 'A')) camMoveOffsetX -= 0.05f;
-		if (glfwGetKey(window, 'D')) camMoveOffsetX += 0.05f;
-		if (glfwGetKey(window, 'W')) camMoveOffsetZ -= 0.05f;
-		if (glfwGetKey(window, 'S')) camMoveOffsetZ += 0.05f;
-		if (glfwGetKey(window, 'X')) camMoveOffsetY -= 0.05f;
-		if (glfwGetKey(window, 'Z')) camMoveOffsetY += 0.05f;*/
-		
-		gCamera.translateLocal(camMoveOffsetX, camMoveOffsetY, camMoveOffsetZ);
-
 		// Check if ESC key was pressed
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
+		if(glfwGetKey(window, GLFW_KEY_ESCAPE))
 			break;
 
-		demo->draw(gCamera.getViewMatrix());
+		demo->draw();
 
 		// Swap front and back rendering buffers
 		glfwSwapBuffers(window);

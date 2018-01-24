@@ -128,12 +128,12 @@ public:
 		matrix.mVal[1][0] = 0.0f;
 		matrix.mVal[2][0] = 0.0f;
 		matrix.mVal[3][0] = x;
-
+ 
 		matrix.mVal[0][1] = 0.0f;
 		matrix.mVal[1][1] = 1.0f;
 		matrix.mVal[2][1] = 0.0f;
 		matrix.mVal[3][1] = y;
-
+ 
 		matrix.mVal[0][2] = 0.0f;
 		matrix.mVal[1][2] = 0.0f;
 		matrix.mVal[2][2] = 1.0f;
@@ -162,12 +162,12 @@ public:
 		matrix.mVal[1][0] = 0.0f;
 		matrix.mVal[2][0] = 0.0f;
 		matrix.mVal[3][0] = 0.0f;
-
+ 
 		matrix.mVal[0][1] = 0.0f;
 		matrix.mVal[1][1] = y;
 		matrix.mVal[2][1] = 0.0f;
 		matrix.mVal[3][1] = 0.0f;
-
+ 
 		matrix.mVal[0][2] = 0.0f;
 		matrix.mVal[1][2] = 0.0f;
 		matrix.mVal[2][2] = z;
@@ -195,17 +195,17 @@ public:
 		float x = ax.mVal[0];
 		float y = ax.mVal[1];
 		float z = ax.mVal[2];
-
+ 
 		matrix.mVal[0][0] = t * x * x + c;
 		matrix.mVal[1][0] = t * y * x + s * z;
 		matrix.mVal[2][0] = t * z * x - s * y;
 		matrix.mVal[3][0] = 0.0f;
-
+ 
 		matrix.mVal[0][1] = t * x * y - s * z;
 		matrix.mVal[1][1] = t * y * y + c;
 		matrix.mVal[2][1] = t * z * y + s * x;
 		matrix.mVal[3][1] = 0.0f;
-
+ 
 		matrix.mVal[0][2] = t * x * z + s * y;
 		matrix.mVal[1][2] = t * y * z - s * x;
 		matrix.mVal[2][2] = t * z * z + c;

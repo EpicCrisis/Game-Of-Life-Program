@@ -5,8 +5,8 @@
 
 class Camera
 {
-	//! \name Attributes.
-	//@{
+//! \name Attributes.
+//@{
 protected:
 	//! Camera position.
 	Vector mPosition;
@@ -23,15 +23,15 @@ protected:
 	//! View matrix. (Cache)
 	mutable Matrix mView;
 
-	//@}
+//@}
 
-	//! \name Methods.
-	//@{
+//! \name Methods.
+//@{
 public:
 	Camera() :
-		mPosition(0.0f, 0.0f, 0.0f),
-		mOrient(Matrix::makeIdentityMatrix()),
-		mWorldMatrixDirty(true)
+	mPosition(0.0f, 0.0f, 0.0f),
+	mOrient(Matrix::makeIdentityMatrix()),
+	mWorldMatrixDirty(true)
 	{ }
 
 	//! Set camera position.
@@ -87,7 +87,7 @@ public:
 		return mView;
 	}
 
-	//@}
+//@}
 };
 
 #endif
